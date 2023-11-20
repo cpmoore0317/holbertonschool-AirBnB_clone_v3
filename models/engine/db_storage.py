@@ -79,3 +79,7 @@ class DBStorage:
         """retreive one object based on class and ID"""
         query = self.__session.query(cls).filter_by(id=id).first()
         return query if query else None
+
+    def count(self, cls=None):
+        """returns the number of objects in storage matching the given class"""
+        return len(self.all(cls))
