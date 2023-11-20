@@ -9,7 +9,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
-cors = CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
+cors = CORS(app, resources={"/*": {"origins": "0.0.0.0"}})
 
 
 @app.teardown_appcontext
@@ -20,8 +20,8 @@ def teardown_appcontext(code):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    """error handler for 404 - Not Found"""
-    return jsonify({"error": "Not found"}), 404
+    """Error handler for 404 - Not Found"""
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 if __name__ == "__main__":
