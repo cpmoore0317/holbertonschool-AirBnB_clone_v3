@@ -17,6 +17,7 @@ def teardown_appcontext(code):
     """teardown function called at the end of each request or app context"""
     storage.close()
 
+
 @app.errorhandler(404)
 def page_not_found(error):
     """eError handler for 404 - Not Found"""
