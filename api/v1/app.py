@@ -14,13 +14,14 @@ cors = CORS(app, resources={"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def teardown_appcontext(code):
-    """teardown function called at the end of each request or application context"""
+    """teardown function called at the end of each request or app context"""
     storage.close()
 
 @app.errorhandler(404)
 def page_not_found(error):
     """eError handler for 404 - Not Found"""
     return make_response(jsonify({'error': 'Not found'}), 404)
+
 
 if __name__ == "__main__":
     app.run(host=os.getenv('HBNB_API_HOST', '0.0.0.0'),

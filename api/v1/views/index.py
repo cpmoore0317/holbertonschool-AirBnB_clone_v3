@@ -32,10 +32,12 @@ def hbnbStats():
     """Route to get statistics about the number of objects in storage.
 
     Returns:
-        Response: JSON response with a dictionary containing counts for each model type.
+        Response: JSON response with a dictionary containing counts
+        for each model type.
 
     Notes:
-        The dictionary includes counts for 'amenities', 'cities', 'places', 'reviews', 'states', and 'users'.
+        The dictionary includes counts for 'amenities', 'cities', 'places',
+        'reviews', 'states', and 'users'.
 
     """
     return_dict = {}
