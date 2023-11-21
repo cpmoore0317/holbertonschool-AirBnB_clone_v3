@@ -1,5 +1,5 @@
-# AirBnB Clone - The Console
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+# AirBnB Clone - RESTful API
+Encorporating and API for the AirBnB clone project series. A RESTful API (Representational State Transfer) is an architectural style for designing networked applications. It is an approach to building web services that adhere to the principles and constraints of REST. REST is not a protocol, but rather a set of architectural principles and constraints that use the HTTP protocol for communication.
 
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
@@ -153,10 +153,12 @@ EOF  all  create  destroy  help  quit  show  update
 ## Bugs
 No known bugs at this time. 
 
-## Authors
-Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+## RESTful API features
+Added get and count functions for FileStorage and DBStorage, which retreives one object based on class and ID and returns the number of objects in storage matching the given class.
 
-Second part of Airbnb: Joann Vuong
+## Authors
+Parker Moore - [Github](https://github.com/cpmoore0317)
+Britt Herman - [Github](https://github.com)
+
 ## License
 Public Domain. No copy write protection. 
