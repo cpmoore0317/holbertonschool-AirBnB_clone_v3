@@ -68,10 +68,12 @@ def post_state():
     """Create a new state.
 
     Returns:
-        Response: JSON response containing information for the newly created state.
+        Response: JSON response containing information for the
+        newly created state.
 
     Raises:
-        400: If the request body is not a JSON or if 'name' is missing in the JSON.
+        400: If the request body is not a JSON or if 'name' is
+        missing in the JSON.
 
     """
     if not request.get_json():
