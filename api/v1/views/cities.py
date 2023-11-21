@@ -49,7 +49,8 @@ def post_city(state_id):
     if state is None:
         abort(404)
     if not request.get_json() or 'name' not in request.get_json():
-        return make_response(jsonify({'error': 'Invalid JSON or missing name'}), 400)
+        return make_response(jsonify(
+            {'error': 'Invalid JSON or missing name'}), 400)
     city_data = request.get_json()
     city_data['state_id'] = state_id
     city = City(**city_data)
