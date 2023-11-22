@@ -36,3 +36,35 @@ def delete_user(user_id):
     storage.save()
     return jsonify({})
 
+@app_views.route('/users', methods=['POST'], strict_slashes=False)
+def post_user():
+    """Create a new user."""
+    # Check if the request contains JSON data.
+    if not request.get_json():
+        return make_response(jsonify({'error': 'Not a JSON'}), 400)
+    # Check if 'email' and 'password' are present in the JSON data.
+    if 'email' not in request.get_json() or 'password' not in request.get_json():
+        return make_response(jsonify({'error': 'Missing email or password'}), 400)
+    # Create a new User object and save it.
+    user = User(**request.get_json())
+    user.save()
+    return make_response(jsonify(user.to_dict()), 201)
+
+@app_views.route('/users/<string:user_id>', methods=['PUT'], strict_slashes=False)
+def put_user(user_id):
+    """Update a user."""
+    # Retrieve a user based on user_id from storage.
+    user = storage.get("User", user_id)
+    if user is None:
+        # If the user is not found, return a 404 error.
+        abort(404)
+    # Check if the request contains JSON data.
+    if not request.get_json():
+        return make_response(jsonify({'error': 'Not a JSON'}), 400)
+    # Update user attributes based on the JSON data.
+    for attr, val in request.get_json().items():
+        if attr not in ['id', 'email', 'created_at', 'updated_at']:
+            setattr(user, attr, val)
+    # Save the changes to the user.
+    user.save()
+    return jsonify(user.to_dict())
